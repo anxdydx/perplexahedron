@@ -1,25 +1,24 @@
 import React from "react";
+import Section from "../../Components/Shared/Section";
 
 const HeroSection = () => {
   return (
     <>
-      <main className="hero-section flex flex-col justify-center items-start text-start h-[90vh] ">
-        {/* <video
-          src="/videos/home.mp4"
-          className=" h-screen -z-10 absolute top-0 left-0 w-full
-          object-cover"
-          autoPlay
-          loop
-        /> */}
-       
-        <video
-          autoPlay
-          className=" h-screen -z-10 absolute top-0 left-0 w-full object-cover"
-          loop
-          playsInline
+      <main>
+        <Section
+          className="pt-[12rem] -mt-[5.25]"
+          crosses
+          crossOffset="lg:translate-y-[5.25rem]"
+          customPaddings
+          id="hero"
         >
-          <source src="/videos/home.mp4" type="video/mp4" />
-        </video>
+          <div className="container relative">
+            <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[4rem] md:mb-20 lg:mb-[6rem]">
+              <h1 className="h1 mb-6">Explore your creativity in VFX ~ gameDev. and unleash ~! 🕴</h1>
+              <span className="inline-block relative">Perplexahedron</span>
+            </div>
+          </div>
+        </Section>
       </main>
     </>
   );
@@ -28,18 +27,7 @@ const HeroSection = () => {
 const Home = () => {
   return (
     <>
-      <div className="container-full flex flex-col w-full">
-        <div className="header-section">
-          <HeroSection />
-        </div>
-        <br />
-        <div className="w-full h-screen second-container">
-          <h1>Sometehing</h1>
-        </div>
-        <div className="w-full h-screen second-container">
-          <h1>Sometehing</h1>
-        </div>
-      </div>
+      <HeroSection />
     </>
   );
 };

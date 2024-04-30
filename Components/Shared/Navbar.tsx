@@ -7,9 +7,11 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Button,
 } from "@nextui-org/react";
 import Link from "next/link";
+import Button from "../Shared/Button";
+import ButtonGradient from "../assets/svg/ButtonGradient";
+import ButtonSvg from "../assets/svg/ButtonSvg";
 
 export const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -38,15 +40,14 @@ export default function NavbarComponent() {
     <Navbar
       shouldHideOnScroll
       onMenuOpenChange={setIsMenuOpen}
-      className={`text-white ${
-        scrollSetter >= 300 ? "text-black" : "bg-transparent"
-      }`}
+      className={`text-white border-n-6 border-b-1  backdrop-blur-sm 
+       ${scrollSetter >= 300 ? "text-black" : "bg-transparent"}`}
       isBlurred={scrollSetter >= 300 ? true : false}
     >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="sm:hidden "
         />
         <NavbarBrand>
           <AcmeLogo />
@@ -75,13 +76,11 @@ export default function NavbarComponent() {
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
         </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
+        <Button className="" href="#">
+          Get started
+        </Button>
       </NavbarContent>
-      <NavbarMenu>
+      <NavbarMenu className="bg-inherit">
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
