@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import Section from "../../Components/Shared/Section";
 import Button from "../../Components/Shared/Button";
-import Image from "next/image";
+import { heroIcons } from "../../Components/constants";
+import { ScrollParallax } from "react-just-parallax";
+import { LuHotel, LuBookMarked, LuSearch, LuServer } from "react-icons/lu";
 
 const HeroSection = () => {
+  const parallaxRef = useRef(null);
+  const mapIcons = [LuHotel, LuBookMarked, LuSearch, LuServer];
   return (
     <>
       <main>
@@ -14,10 +18,10 @@ const HeroSection = () => {
           customPaddings
           id="hero"
         >
-          <div className="container relative">
+          <div className="container relative" ref={parallaxRef}>
             <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[4rem] md:mb-20 lg:mb-[6rem]">
               <h1 className="h1 mb-6">
-                Not just <span>community</span>, It's a family of{" "}
+                Not just <span>community</span>, It&lsquo;s a family of{" "}
                 <span>
                   New age{" "}
                   <span
@@ -49,18 +53,29 @@ const HeroSection = () => {
                     <img
                       src="/images/hero/robot.jpg"
                       alt="Ai"
-                      className="w-full scale-1.7 translate-y-[8%] md:scale-1 md:-translate-y-[10%] lg:-translate-y-[33%]"
+                      className="w-full scale-[1]  translate-y-[8%] md:scale-1 md:-translate-y-[10%] lg:-translate-y-[62%]"
                       width={1024}
                       height={490}
                     />
+                    <ScrollParallax isAbsolutelyPositioned>
+                      <ul className="hidden absolute -left-[5.54rem] bottom-[7.5rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
+                        {mapIcons.map((icon, index) => {
+                          return (
+                            <li className="p-5" key={index}>
+                              {icon({ className: "w-[2rem] h-[2rem] cursor-pointer" })}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </ScrollParallax>
                   </div>
                 </div>
               </div>
-              <div className="absolute -top-[74%] left-1/2 w-[100%] -translate-x-1/2 md:-top-[46%] md:w-[138% lg:-top-[104%]">
+              <div className="absolute -top-[74%] left-1/2 scale-[1.3]  -translate-x-1/2 md:-top-[46%] md:w-[138% lg:-top-[104%]">
                 <img
                   src="/images/hero/hero-background.jpg"
                   alt="hero background"
-                  className="w-full "
+                  className="w-full scale-[1.7]"
                 />
               </div>
             </div>

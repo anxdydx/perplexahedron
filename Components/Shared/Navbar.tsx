@@ -10,8 +10,6 @@ import {
 } from "@nextui-org/react";
 import Link from "next/link";
 import Button from "../Shared/Button";
-import ButtonGradient from "../assets/svg/ButtonGradient";
-import ButtonSvg from "../assets/svg/ButtonSvg";
 
 export const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">
@@ -50,8 +48,10 @@ export default function NavbarComponent() {
           className="sm:hidden "
         />
         <NavbarBrand>
-          <AcmeLogo />
-          <p className="font-bold text-inherit">PERPLEXAHEDRON</p>
+          <Link href="/" className="flex flex-row text-center items-center justify-center">
+            <AcmeLogo />
+            <p className="font-bold text-inherit">PERPLEXAHEDRON</p>
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
