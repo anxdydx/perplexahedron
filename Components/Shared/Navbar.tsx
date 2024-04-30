@@ -41,8 +41,8 @@ export default function NavbarComponent() {
       shouldHideOnScroll
       onMenuOpenChange={setIsMenuOpen}
       className={`text-white border-n-6 border-b-1  backdrop-blur-sm 
-       ${scrollSetter >= 300 ? "text-black" : "bg-transparent"}`}
-      isBlurred={scrollSetter >= 300 ? true : false}
+  bg-transparent
+    `}
     >
       <NavbarContent>
         <NavbarMenuToggle
